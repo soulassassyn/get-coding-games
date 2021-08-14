@@ -1,5 +1,2 @@
 # tic-tac-toe
-MY FIRST GAME
-/caps
-
-## yo layer 2
+First simple JS game.  Messing with CSS styling along with simple JS funtions, loops and if statements.
