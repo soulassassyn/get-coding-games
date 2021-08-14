@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tic Tac Toe v2.0</title>
+        <style>
+            *, *::before, *::after {
+                box-sizing: border-box;
+            }
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .title {
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                font-size: 20pt;
+                text-align: center;
+                color: rgb(0, 80, 112);
+            }
+            .board-container {
+                display: flex;
+                flex-direction: column;
+                margin-top: 20px;
+                border: 1px solid red;
+            }
+            .row div {
+                padding: 10px;
+                border: 2px solid black;
+                float: left;
+                height: 60px;
+                width: 60px;
+            }
+                        .row {
+                /* clear: both; */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="title">
+            Let's play Tic Tac Toe!<br/>
+            Click here to play!<br/>
+        </div>
+        <div class="board-container">
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+    </body>
+</html>
