@@ -47,6 +47,15 @@
                 align-items: center;
                 text-align: center;
             }
+            .winner {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 14pt;
+                color:rgb(182, 113, 11);
+            }
         </style>
     </head>
     <body>
@@ -73,19 +82,23 @@
         </div>
         <div class="board-container">
             <div class="rowb">
-                <div onclick="alert(currentPlayer);">
-                    Click here to find out if you are X or O.
-                </div>
+                <div id="player" class="winner"></div>
+                <div id="winbox" class="winner"></div>
             </div>
         </div>
         <script>
             let currentPlayer = "X"
+            let currentPlayerW = "O"
+
+            document.getElementById("player").innerText = "Current Player: " + currentPlayer;
             function place(box) {
                 if(box.innerText != "") return;
                 box.innerText = currentPlayer;
 
                 currentPlayer == "O" ? currentPlayer = "X" : currentPlayer = "O";
+                currentPlayer == "X" ? currentPlayerW = "O" : currentPlayerW = "X";
                 checkGameBoard();
+                checkCurrentPlayer();
             }
  
  /*           function checkGameBoard() {
@@ -138,11 +151,14 @@
                             document.getElementById("1_1").innerText,
                             document.getElementById("0_2").innerText);
             }
-            
+
             function checkWinner(first, second, third) {
                 if(first != "" && first == second && first == third) {
-                    alert("Winner!");
+                    document.getElementById("winbox").innerText = currentPlayerW + " has won the match!";
                 }
+            }
+            function checkCurrentPlayer() {
+                document.getElementById("player").innerText = "Current Player: " + currentPlayer;
             }
         </script>
     </body>
