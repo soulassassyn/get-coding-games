@@ -56,19 +56,19 @@
         </div>
         <div class="board-container">
             <div class="row">
-                <div onclick="place(this)"></div>
-                <div onclick="place(this)"></div>
-                <div onclick="place(this)"></div>
+                <div id="0_0" onclick="place(this)"></div>
+                <div id="1_0" onclick="place(this)"></div>
+                <div id="2_0" onclick="place(this)"></div>
             </div>
             <div class="row">
-                <div onclick="place(this)"></div>
-                <div onclick="place(this)"></div>
-                <div onclick="place(this)"></div>
+                <div id="0_1" onclick="place(this)"></div>
+                <div id="1_1" onclick="place(this)"></div>
+                <div id="2_1" onclick="place(this)"></div>
             </div>            
             <div class="row">
-                <div onclick="place(this)"></div>
-                <div onclick="place(this)"></div>
-                <div onclick="place(this)"></div>
+                <div id="0_2" onclick="place(this)"></div>
+                <div id="1_2" onclick="place(this)"></div>
+                <div id="2_2" onclick="place(this)"></div>
             </div>
         </div>
         <div class="board-container">
@@ -81,15 +81,69 @@
         <script>
             let currentPlayer = "X"
             function place(box) {
+                if(box.innerText != "") return;
                 box.innerText = currentPlayer;
-                if(currentPlayer == "O") {
-                    currentPlayer = "X"
-                }
-                else {
-                    currentPlayer = "O"
-                }  
+
+                currentPlayer == "O" ? currentPlayer = "X" : currentPlayer = "O";
+                checkGameBoard();
             }
-            // document.getElementById("player").innerText = "X"
+ 
+ /*           function checkGameBoard() {
+                for(let i = 0; i <= 2; i++) {
+                    let first = document.getElementById("0_" + i).innerText;
+                    let second = document.getElementById("1_" + i).innerText;
+                    let third = document.getElementById("2_" + i).innerText;
+                    if(first == "") continue;
+                    if(first == second && first == third) {
+                        alert("Winner!");
+                    }
+                }
+                for(let i = 0; i <= 2; i++) {
+                    let first = document.getElementById(i + "_0").innerText;
+                    let second = document.getElementById(i + "_1").innerText;
+                    let third = document.getElementById(i + "_2").innerText;
+                    if(first == "") continue;
+                    if(first == second && first == third) {
+                        alert("Winner!");
+                    }
+                }
+                let firstD1 = document.getElementById("0_0").innerText;
+                let secondD1 = document.getElementById("1_1").innerText;
+                let thirdD1 = document.getElementById("2_2").innerText;
+                if(firstD1 != "" && firstD1 == secondD1 && firstD1 == thirdD1) {
+                    alert("Winner!");
+                }
+                let firstD2 = document.getElementById("2_0").innerText;
+                let secondD2 = document.getElementById("1_1").innerText;
+                let thirdD2 = document.getElementById("0_2").innerText;
+                if(firstD2 != "" && firstD2 == secondD2 && firstD2 == thirdD2) {
+                    alert("Winner!");
+                }
+            }
+*/
+
+            function checkGameBoard() {
+                for(let i = 0; i <= 2; i++) {
+                    checkWinner(document.getElementById(i + "_0").innerText, 
+                                document.getElementById(i + "_1").innerText, 
+                                document.getElementById(i + "_2").innerText);
+                    checkWinner(document.getElementById("0_" + i).innerText,
+                                document.getElementById("1_" + i).innerText,
+                                document.getElementById("2_" + i).innerText);
+                }
+                checkWinner(document.getElementById("0_0").innerText,
+                            document.getElementById("1_1").innerText,
+                            document.getElementById("2_2").innerText);
+                checkWinner(document.getElementById("2_0").innerText,
+                            document.getElementById("1_1").innerText,
+                            document.getElementById("0_2").innerText);
+            }
+            
+            function checkWinner(first, second, third) {
+                if(first != "" && first == second && first == third) {
+                    alert("Winner!");
+                }
+            }
         </script>
     </body>
 </html>
