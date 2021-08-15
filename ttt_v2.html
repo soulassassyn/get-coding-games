@@ -155,11 +155,14 @@
             function checkWinner(first, second, third) {
                 if(first != "" && first == second && first == third) {
                     document.getElementById("winbox").innerText = currentPlayerW + " has won the match!";
+                    document.getElementById("winbox").style.backgroundColor = "rgb(150, 247, 182)";
                 }
             }
+
             function checkCurrentPlayer() {
                 document.getElementById("player").innerText = "Current Player: " + currentPlayer;
             }
+
         </script>
     </body>
 </html>
