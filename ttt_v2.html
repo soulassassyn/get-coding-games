@@ -29,6 +29,23 @@
                 float: left;
                 height: 100px;
                 width: 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-size: 72pt;
+                color:rgb(182, 113, 11);
+            }
+            .rowb div {
+                padding: 10px;
+                border: 2px solid rgb(0, 80, 112);
+                float: left;
+                height: 100px;
+                width: 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
             }
         </style>
     </head>
@@ -39,28 +56,40 @@
         </div>
         <div class="board-container">
             <div class="row">
-                <div></div>
-                <div></div>
-                <div></div>
+                <div onclick="place(this)"></div>
+                <div onclick="place(this)"></div>
+                <div onclick="place(this)"></div>
             </div>
             <div class="row">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+                <div onclick="place(this)"></div>
+                <div onclick="place(this)"></div>
+                <div onclick="place(this)"></div>
+            </div>            
             <div class="row">
-                <div></div>
-                <div></div>
-                <div></div>
+                <div onclick="place(this)"></div>
+                <div onclick="place(this)"></div>
+                <div onclick="place(this)"></div>
             </div>
         </div>
         <div class="board-container">
-            <div class="row">
-                <div></div>
+            <div class="rowb">
+                <div onclick="alert(currentPlayer);">
+                    Click here to find out if you are X or O.
+                </div>
             </div>
         </div>
         <script>
-
+            let currentPlayer = "X"
+            function place(box) {
+                box.innerText = currentPlayer;
+                if(currentPlayer == "O") {
+                    currentPlayer = "X"
+                }
+                else {
+                    currentPlayer = "O"
+                }  
+            }
+            // document.getElementById("player").innerText = "X"
         </script>
     </body>
 </html>
