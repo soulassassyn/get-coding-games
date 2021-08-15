@@ -89,10 +89,11 @@
         <script>
             let currentPlayer = "X"
             let currentPlayerW = "O"
+            let won = false;
 
             document.getElementById("player").innerText = "Current Player: " + currentPlayer;
             function place(box) {
-                if(box.innerText != "") return;
+                if(box.innerText != "" || won) return;
                 box.innerText = currentPlayer;
 
                 currentPlayer == "O" ? currentPlayer = "X" : currentPlayer = "O";
@@ -156,6 +157,7 @@
                 if(first != "" && first == second && first == third) {
                     document.getElementById("winbox").innerText = currentPlayerW + " has won the match!";
                     document.getElementById("winbox").style.backgroundColor = "rgb(150, 247, 182)";
+                    won = true;
                 }
             }
 
